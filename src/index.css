@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #059669;
+  
+  --primary-light: #dcfce7;
+  --secondary: #ea580c;
+  
+
+  --bg-app: #fafaf5;
+  
+  --bg-sidebar: #1f2937;
+  
+  --bg-card: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --funny-sage: #828e5c;
+  --funny-amber: #d97706;
+  --funny-coral: #fb7185;
+  --hero-gradient: linear-gradient(135deg, #828e5c 0%, #059669 100%);
+}
+
+.dark {
+  --bg-app: #0f172a;
+  
+  --bg-sidebar: #0b1120;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+  --hero-gradient: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-from-right-4 {
+  animation-name: slideInRight;
+}
+
+.duration-500 {
+  animation-duration: 500ms;
+}
+
+.duration-700 {
+  animation-duration: 700ms;
+}
+
+.dashboard-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  color: white;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.sidebar-logo img {
+  height: 36px;
+  width: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+}
+
+.sidebar-logo img:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.nav-item.active {
+  background: var(--funny-sage);
+  color: white;
+  box-shadow: 0 4px 12px rgba(130, 142, 92, 0.4);
+}
+
+.dark .nav-item.active {
+  background: var(--primary);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 2.5rem 3.5rem;
+}
+
+/* Home Page - Gourmet Theme */
+.hero-banner {
+  background: var(--hero-gradient);
+  border-radius: 2rem;
+  padding: 4rem;
+  color: white;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+/* Card System */
+.gourmet-card {
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.gourmet-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: var(--bg-app);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+/* Forms & Dashboard Controls */
+.control-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.gourmet-select,
+.gourmet-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 2px solid var(--border);
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.3s, color 0.3s;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}
+
+.gourmet-select:focus,
+.gourmet-input:focus {
+  border-color: var(--primary);
+}
+
+/* Results Display */
+.result-stat {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--funny-amber);
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+  margin: 1rem 0;
+}
+
+.dark .result-stat {
+  color: var(--primary);
+}
+
+.ingredient-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.ingredient-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ingredient-name {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.ingredient-qty {
+  font-weight: 800;
+  color: var(--funny-sage);
+  font-family: 'Outfit', sans-serif;
+}
+
+.dark .ingredient-qty {
+  color: var(--primary);
+}
+
+.action-btn {
+  background: var(--funny-coral);
+  color: white;
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.dark .action-btn {
+  background: var(--primary);
+}
+
+.action-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(251, 113, 133, 0.4);
+}
+
+.dark .action-btn:hover {
+  box-shadow: 0 10px 20px -5px rgba(5, 150, 105, 0.4);
+}
+
+/* Old Content Sections - DITTO Restore */
+.ditto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.step-card {
+  text-align: center;
+  position: relative;
+}
+
+.step-num {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--border);
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+    padding: 2rem 0.5rem;
+  }
+
+  .sidebar-logo span,
+  .nav-item span,
+  .theme-toggle-btn span,
+  .sidebar-version {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 80px;
+    padding: 1.5rem;
+  }
+
+  .control-grid {
+    grid-template-columns: 1fr;
+  }
+}

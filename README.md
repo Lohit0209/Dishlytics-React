@@ -1,16 +1,20 @@
-# React + Vite
+AI-Powered Meal Planning & Cost Optimization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional web application that uses machine learning to predict recipe-specific quantities and calculate meal costs based on household composition.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✨ Features
+🤖 AI Quantity Predictor
+Recipe-Specific Predictions: Different quantities for different recipes (Biryani vs Dal vs Pasta)
+Age-Group Aware: Adjusts for adults, teens, kids, and seniors
+Meal Type Optimization: Breakfast, lunch, dinner, and snack variations
+Weekend Bonus: Accounts for increased consumption on weekends
+ML-Powered Algorithm: Uses recipe-specific patterns and intelligent calculations
+💰 Smart Cost Calculator
+Indian Market Prices: Traditional Indian ingredient prices in ₹
+Itemized Breakdown: See cost for each ingredient
+Total Meal Cost: Complete cost calculation with per-person breakdown
+ML Integration: Uses AI predictions for accurate quantity-based costing
+Recipe Library
+17+ Indian recipes with detailed instructions
+Ingredient lists with measurements
+Cooking time estimates
